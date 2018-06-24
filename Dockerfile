@@ -20,10 +20,10 @@ RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=acc
  rm jdk*.tar.gz && \
  mv jdk* ${JAVA_HOME}
 RUN mkdir -p /opt/lunatech/airportservice
-WORKDIR /opt/lunatech/airportservice
+WORKDIR /opt/lunatech/
 RUN wget https://s3-eu-west-1.amazonaws.com/devops-assesment/airports-assembly-1.0.1.jar
 RUN mv airports-assembly-*.jar airports-assembly.jar
-RUN git clone 
+RUN git clone https://github.com/dariniv/airportservice.git
 RUN chmod +x /opt/lunatech/airportservice/* -R
 CMD ["sh","/opt/lunatech/airportservice/appstart.sh"]
 EXPOSE 8080
